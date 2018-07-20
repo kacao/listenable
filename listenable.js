@@ -1,11 +1,11 @@
-function isFunction {
+function isFunction(func) {
   return (typeof func === 'function');
 }
 
 exports = module.exports = class Listenable {
 
 	constructor(id) {
-    if ((typeof id != 'string') || (id == '')) { throw "[Listenable] id required"; }
+    if ((typeof id != 'string') || (id == '')) { throw "id required"; }
 		this._id = id;
 		this._callbacks = {};
 	}
@@ -16,7 +16,7 @@ exports = module.exports = class Listenable {
 				this._callbacks[event] = [];
 			}
 			this._callbacks[event].push(func);
-		}
+		} else { throw "not a function" };
 	}
 
 	async emit(event) {
