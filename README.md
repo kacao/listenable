@@ -13,5 +13,5 @@ Usage
 const Listenable = require('listenable');
 let l = new Listenable('some-id');
 l.on('test', async () => { console.log('testing') });
-l.emit('test');
+l.emit('test').then(() => {});
 ```

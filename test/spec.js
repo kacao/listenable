@@ -15,6 +15,6 @@ describe('Listenable', () => {
   it('should emit correctly', (done) => {
     let l = new Listenable('test');
     l.on('test', async () => { done(); });
-    l.emit('test'); 
+    l.emit('test').then(() => {}); 
   });
 });
