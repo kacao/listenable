@@ -1,5 +1,3 @@
-const isFunction = require('./utils').isFunction;
-
 function isFunction {
   return (typeof func === 'function');
 }
