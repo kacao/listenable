@@ -41,7 +41,7 @@ exports = module.exports = class Listenable {
 	set state(newState) {
 		let oldState = this._state;
 		this._state = newState;
-		this._fire('stateChanged', {id: this._id, oldState: oldState, newState: this._state});
+		this.emit('stateChanged', {id: this._id, oldState: oldState, newState: this._state});
 	}
 
 }
