@@ -28,7 +28,7 @@ exports = module.exports = class Listenable {
 				p.push(funcList[i].apply(this, args));
 			}
 		}
-    await Promise.all(p);
+    return await Promise.all(p);
 	}
 
   get id() {
