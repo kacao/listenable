@@ -22,11 +22,13 @@ exports = module.exports = class Listenable {
 	async emit(event) {
 		let funcList = this._callbacks[event];
 		let args = Array.prototype.slice.call(arguments, 1);
+    let p = [];
 		if (Array.isArray(funcList)) {
 			for (let i=0; i<funcList.length; i++) {
-				await funcList[i].apply(this, args);
+				p.push(funcList[i].apply(this, args));
 			}
 		}
+    await Promise.all(p);
 	}
 
   get id() {
