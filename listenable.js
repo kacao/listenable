@@ -17,6 +17,7 @@ exports = module.exports = class Listenable {
 			}
 			this._callbacks[event].push(func);
 		} else { throw "not a function" };
+    return this;
 	}
 
 	async emit(event) {
